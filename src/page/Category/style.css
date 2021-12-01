@@ -1,0 +1,9 @@
+.category-page-container {
+    top: -21px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.product-img {
+    /* max-width: 50vw; */
+}

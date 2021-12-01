@@ -1,0 +1,12 @@
+.store-location {
+    font-size: small;
+    color: #83a993;
+}
+
+.store-location svg {
+    width: 18px;
+}
+
+.store-location svg path {
+    fill: rgba(255, 255, 255, 0.5);
+}
