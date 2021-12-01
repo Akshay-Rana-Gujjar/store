@@ -5,25 +5,28 @@ import Category from "./page/Category";
 import BackButton from "./component/BackButton";
 import HideElement from "./component/HideElement";
 import Header from "./component/Header";
+import Firebase from "./provider/firebase";
 
 function App() {
   return (
-    <div className="app-body">
-      <Router>
-        <HideElement hideOnPaths={["/"]}>
-          <BackButton />
-        </HideElement>
+    <Firebase>
+      <div className="app-body">
+        <Router>
+          <HideElement hideOnPaths={["/"]}>
+            <BackButton />
+          </HideElement>
 
-        <Header />
+          <Header />
 
-        <Routes>
-          <Route path="/about"></Route>
-          <Route path="/users"></Route>
-          <Route path="/" element={<Home />} />
-          <Route path="/category/:name" element={<Category />} />
-        </Routes>
-      </Router>
-    </div>
+          <Routes>
+            <Route path="/about"></Route>
+            <Route path="/users"></Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/category/:id" element={<Category />} />
+          </Routes>
+        </Router>
+      </div>
+    </Firebase>
   );
 }
 
