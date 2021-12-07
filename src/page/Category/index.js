@@ -27,129 +27,6 @@ export default function Category() {
     });
   }, []);
 
-  const data = [
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-    {
-      name: "Banana",
-      img: "https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_1280.png",
-      price: "50.00",
-      discountPrice: "49.00",
-      unit: "1kg",
-      currencySymbol: "₹",
-    },
-  ];
-
   function ProductItem({ product, className: classN }) {
     return (
       <div className={`${classN}`}>
@@ -160,7 +37,7 @@ export default function Category() {
           <div
             className={
               "product-price text-green fw-bold " +
-              (product.discountPrice && "text-decoration-line-through small")
+              (product.discountedPrice && "text-decoration-line-through small")
             }
           >
             {product.currencySymbol}
@@ -168,7 +45,7 @@ export default function Category() {
           </div>
           <div className="text-green fw-bold ms-1">
             {product.currencySymbol}
-            {product.discountPrice}
+            {product.discountedPrice}
           </div>
         </div>
       </div>
@@ -180,7 +57,7 @@ export default function Category() {
       <div className="row container-fluid1 mx-1">
         {productData.map((p) => (
           <ProductItem
-            className="col-6 border border-light shadow-sm p-3"
+            className="col-6 border border-light shadow-sm p-3 card rounded-0"
             product={p}
           />
         ))}

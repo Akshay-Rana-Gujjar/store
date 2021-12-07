@@ -5,5 +5,6 @@
 }
 
 .product-img {
-    /* max-width: 50vw; */
+    height: 170px;
+    object-fit: contain;
 }

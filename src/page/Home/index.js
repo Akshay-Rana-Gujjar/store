@@ -1,69 +1,31 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CATEGORY } from "../../constant/collection";
-import {FirebaseContext} from "../../provider/firebase";
+import { CATEGORY, STORE } from "../../constant/collection";
+import { FirebaseContext } from "../../provider/firebase";
 import "./style.css";
-import {collection, query, getDocs } from 'firebase/firestore'
-
+import { collection, query, getDocs } from "firebase/firestore";
 
 export default function Home() {
-
-	const [categoryData, setCategoryData] = useState([]);
-
-  const data = [
-    {
-      name: "Vegetables",
-      img: "https://www.freepnglogos.com/uploads/vegetables-png/fruit-and-vegetables-basket-png-20.png",
-    },
-    {
-      name: "Fruits",
-      img: "https://freepngimg.com/thumb/fruit/6-2-fruit-png-picture.png",
-    },
-    {
-      name: "Vegetables",
-      img: "https://www.freepnglogos.com/uploads/vegetables-png/fruit-and-vegetables-basket-png-20.png",
-    },
-    {
-      name: "Fruits",
-      img: "https://freepngimg.com/thumb/fruit/6-2-fruit-png-picture.png",
-    },
-    {
-      name: "Vegetables",
-      img: "https://www.freepnglogos.com/uploads/vegetables-png/fruit-and-vegetables-basket-png-20.png",
-    },
-    {
-      name: "Fruits",
-      img: "https://freepngimg.com/thumb/fruit/6-2-fruit-png-picture.png",
-    },
-    {
-      name: "Vegetables",
-      img: "https://www.freepnglogos.com/uploads/vegetables-png/fruit-and-vegetables-basket-png-20.png",
-    },
-    {
-      name: "Fruits",
-      img: "https://freepngimg.com/thumb/fruit/6-2-fruit-png-picture.png",
-    },
-  ];
+  const [categoryData, setCategoryData] = useState([]);
 
   const { firestore } = useContext(FirebaseContext);
 
-	useEffect(() => {
-		console.log(firestore);
-		
-		const q = query(collection(firestore, CATEGORY));
-		getDocs(q).then((docs)=>{
-			const tempDocs = [];
-			docs.forEach(doc=>{
-				const docObj = {
-					...doc.data(),
-					id: doc.id
-				}
-				tempDocs.push(docObj);
-			});
-			setCategoryData(tempDocs);
-		})
-	
-	}, []);
+  useEffect(() => {
+    console.log(firestore);
+
+    const q = query(collection(firestore, CATEGORY));
+    getDocs(q).then((docs) => {
+      const tempDocs = [];
+      docs.forEach((doc) => {
+        const docObj = {
+          ...doc.data(),
+          id: doc.id,
+        };
+        tempDocs.push(docObj);
+      });
+      setCategoryData(tempDocs);
+    });
+  }, []);
 
   function CategoryItem({ category = {}, onClick = null }) {
     return (

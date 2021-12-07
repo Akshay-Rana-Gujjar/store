@@ -19,8 +19,6 @@ function App() {
           <Header />
 
           <Routes>
-            <Route path="/about"></Route>
-            <Route path="/users"></Route>
             <Route path="/" element={<Home />} />
             <Route path="/category/:id" element={<Category />} />
           </Routes>
