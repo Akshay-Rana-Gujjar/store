@@ -34,7 +34,7 @@ export default function Category() {
         <div className="product-name h5">{product.name}</div>
         <div className="product-unit text-muted small">{product.unit}</div>
         <div className="d-flex justify-content-between1 align-items-baseline">
-          <div
+          {product?.price && <div
             className={
               "product-price text-green fw-bold " +
               (product.discountedPrice && "text-decoration-line-through small")
@@ -42,11 +42,11 @@ export default function Category() {
           >
             {product.currencySymbol}
             {product.price}
-          </div>
-          <div className="text-green fw-bold ms-1">
+          </div>}
+          {product?.discountedPrice && <div className="text-green fw-bold ms-1">
             {product.currencySymbol}
             {product.discountedPrice}
-          </div>
+          </div>}
         </div>
       </div>
     );
