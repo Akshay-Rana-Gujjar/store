@@ -41,3 +41,8 @@
     backdrop-filter: blur(3px);
     background-color: #25582969;
 }
+
+.category-skeleton {
+    height: 170px;
+    background: #e3fce0;
+}

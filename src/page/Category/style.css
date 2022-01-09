@@ -8,3 +8,13 @@
     height: 170px;
     object-fit: contain;
 }
+
+.item-cart-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.product-skeleton {
+    height: 300px;
+    background: #e3fce0;
+}

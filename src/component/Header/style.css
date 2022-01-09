@@ -12,6 +12,21 @@
 }
 
 .store-logo {
-    width: 70px;
+    /* width: 90px; */
+    height: 114px;
     object-fit: contain;
+}
+
+.store-name {
+    font-size: 18px;
+}
+
+.text-skeleton-small {
+    height: 14px;
+    background: #eeeeee3a;
+}
+
+.text-skeleton-heading {
+    height: 28px;
+    background: #eeeeee3a;
 }

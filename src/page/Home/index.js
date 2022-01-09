@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { CATEGORY, STORE } from "../../constant/collection";
-import { FirebaseContext } from "../../provider/firebase";
-import "./style.css";
-import { collection, query, getDocs } from "firebase/firestore";
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { CATEGORY, STORE } from '../../constant/collection';
+import { FirebaseContext } from '../../provider/firebase';
+import './style.css';
+import { collection, query, getDocs } from 'firebase/firestore';
 
 export default function Home() {
   const [categoryData, setCategoryData] = useState([]);
@@ -53,6 +53,11 @@ export default function Home() {
       <div className="home-category-container container p-3 position-relative bg-white">
         <div className="h2 text-green">Categories</div>
         <div className="category-item-container">
+          {categoryData.length === 0 && (
+            <>
+              <div className="category-skeleton category-item position-relative p-0 text-white border1 border-light1 rounded-3 mb-3 card shadow bg-category overflow-hidden"></div>
+            </>
+          )}
           {categoryData.map((c) => (
             <CategoryItem category={c} />
           ))}

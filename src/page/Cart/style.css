@@ -1,0 +1,21 @@
+.cart-item-button {
+    width: 32px;
+    height: 32px;
+}
+
+.next-icon svg {
+    width: 20px;
+    transform: rotate(180deg);
+}
+
+.next-icon svg path {
+    fill: #fff;
+}
+
+.order-btn-sub-detail {
+    font-size: 12px;
+}
+
+.fst-italic.small {
+    color: #b4b4b4;
+}
