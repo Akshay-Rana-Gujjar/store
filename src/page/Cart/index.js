@@ -24,7 +24,7 @@ export default function Cart() {
       message
     )}`;
     window.open(LINE_SCHEMA, '_blank');
-    setTimeout(() => setShowLoading(false), 5000);
+    setTimeout(() => setShowLoading(false), 10000);
   };
 
   if (!cart || Object.keys(cart).length === 0) {
@@ -126,7 +126,7 @@ export default function Cart() {
                   <div class="spinner-border text-success" role="status">
                     <span class="visually-hidden">Loading...</span>
                   </div>
-                  <div className="fw-bold ms-2">Opeing Line App...</div>
+                  <div className="fw-bold ms-2">Opening Line App...</div>
                 </div>
               </div>
             </div>
