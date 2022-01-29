@@ -14,12 +14,21 @@ export default function Cart() {
   const sendOrderToLINE = () => {
     setShowLoading(true);
     const lineID = store.lineId;
+		let totalPrice = 0;
     let message = `Hello I want to order:
 		${Object.keys(cart).map((key) => {
       const item = cart[key];
-      return `${item.cartCount} ${item.name} (${item.unit}) \n`;
+			if(!isNaN(Number(item.discountedPrice || item.price)) && !isNaN(item.cartCount))
+				totalPrice+= Number(item.discountedPrice || item.price) * item.cartCount;
+			const cartCount = item.cartCount || '';
+			const itemName = item.name || '';
+			const itemUnit = item.unit || '';
+      return `${cartCount} ${itemName} (${itemUnit}) \n`;
     })}
 		`;
+		if(totalPrice>0){
+			message += "Total Bill: " + totalPrice;
+		}
     const LINE_SCHEMA = `https://line.me/R/oaMessage/@${lineID}/?${encodeURI(
       message
     )}`;

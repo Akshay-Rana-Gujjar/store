@@ -20,8 +20,8 @@ export const useCartIncrement = () => {
   const { cart, setCart } = useContext(CartContext);
   return function (id) {
     const item = cart[id];
+		item.cartCount++;
     setCart((prev) => {
-      item.cartCount++;
       return { ...prev, [id]: item };
     });
   };
