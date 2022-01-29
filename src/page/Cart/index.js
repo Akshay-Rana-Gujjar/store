@@ -13,7 +13,7 @@ export default function Cart() {
   const [showLoading, setShowLoading] = useState(false);
   const sendOrderToLINE = () => {
     setShowLoading(true);
-    const lineID = store.lineId;
+    const {lineId, currencySymbol} = store;
 		let totalPrice = 0;
     let message = `Hello I want to order:
 		${Object.keys(cart).map((key) => {
@@ -27,9 +27,9 @@ export default function Cart() {
     })}
 		`;
 		if(totalPrice>0){
-			message += "Total Bill: " + totalPrice;
+			message += "Total Bill: "+currencySymbol + totalPrice;
 		}
-    const LINE_SCHEMA = `https://line.me/R/oaMessage/@${lineID}/?${encodeURI(
+    const LINE_SCHEMA = `https://line.me/R/oaMessage/@${lineId}/?${encodeURI(
       message
     )}`;
     window.open(LINE_SCHEMA, '_blank');
